@@ -15,7 +15,7 @@ export const createUser = async (user: CreateUserParams) => {
                 firstname: user.firstname,
                 lastname: user.lastname,
                 photo: user.photo,
-                password: 'null',
+                password: null,
             }
         });
 
