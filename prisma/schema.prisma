@@ -21,6 +21,7 @@ model User {
   photo         String?
   firstname     String?
   lastname      String?
+  password      String? 
   planId        Int?    @default(1)
   creditBalance Int?    @default(10)
 
