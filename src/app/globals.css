@@ -7,8 +7,12 @@
     @apply bg-gradient-to-r from-yellow-500 to-red-500
 }
 
+.submit-button {
+    @apply bg-orange-gradient rounded-full w-[22rem] text-white p-6 text-base disabled:cursor-not-allowed mx-auto
+}
+
 .sidebar {
-    @apply hidden max-h-screen scroll-auto w-72 bg-white shadow-md shadow-purple-200/50 lg:flex;
+    @apply hidden max-h-screen scroll-auto w-72 bg-white shadow-md shadow-orange-200/50 lg:flex;
 }
 
 .sidebar-logo {
@@ -95,4 +99,51 @@
 /* 10 */
 .p-10-medium {
     @apply font-medium text-[10px] leading-[140%];
+}
+
+
+.root {
+    @apply flex min-h-screen w-full flex-col lg:flex-row bg-white
+}
+
+.root-container {
+    @apply lg:mt-4 flex-1 overflow-auto p-8 lg:max-h-screen lg:py-10
+}
+
+.input-field {
+    @apply block mb-2 rounded-xl;
+    @apply border p-2 border-gray-300 bg-gray-100;
+}
+
+.select-field {
+    @apply w-full border-2 border-orange-200/20 shadow-sm shadow-orange-200/15 rounded-[16px] h-[50px] md:h-[54px] text-dark-600 p-16-semibold disabled:opacity-100 placeholder:text-dark-400/50 px-4 py-3 focus:ring-offset-0 focus-visible:ring-transparent focus:ring-transparent focus-visible:ring-0 focus-visible:outline-none !important;
+}
+
+.select-trigger {
+    @apply flex items-center gap-2 py-5 capitalize focus-visible:outline-none;
+}
+
+.select-item {
+    @apply py-3 cursor-pointer hover:bg-orange-100;
+}
+
+/* MediaUploader Component */
+.media-uploader_cldImage {
+    @apply h-fit min-h-72 w-full rounded-[10px] border border-dashed bg-orange-100/20 object-cover p-2;
+}
+
+.media-uploader_cta {
+    @apply flex justify-center items-center h-72 cursor-pointer flex-col gap-5 rounded-[16px] border border-dashed bg-orange-100/20 shadow-inner;
+}
+
+.media-uploader_cta-image {
+    @apply rounded-[16px] bg-white p-5 shadow-sm shadow-orange-200/50;
+}
+
+.transforming-loader {
+    @apply flex justify-center items-center absolute left-[50%] top-[50%] size-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 rounded-md border bg-dark-700/90;
+}
+
+.transformed-placeholder {
+    @apply flex justify-center items-center p-14-medium h-full min-h-72 flex-col gap-5 rounded-lg border border-dashed bg-purple-100/20 shadow-inner;
 }

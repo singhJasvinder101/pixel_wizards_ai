@@ -1,3 +1,5 @@
+"use server"
+
 import { handleError } from "@/lib/utils";
 import prisma from "@/lib/prismaDb";
 import { revalidatePath } from "next/cache";
@@ -64,7 +66,7 @@ export async function updateUser(clerkId: string, user: UpdateUserParams) {
 export async function deleteUser(clerkId: string) {
     try {
         // Find user to delete
-        const userToDelete = await prisma.user.findUnique({ where: {clerkId} });
+        const userToDelete = await prisma.user.findUnique({ where: { clerkId } });
 
         if (!userToDelete) {
             throw new Error("User not found");
@@ -82,3 +84,19 @@ export async function deleteUser(clerkId: string) {
     }
 }
 
+// USE CREDITS
+export async function updateCredits(userId: string, creditFee: number) {
+    try {
+
+        const updatedUserCredits = await prisma.user.update({
+            where: { id: userId },
+            data: { creditBalance: { increment: creditFee } },
+        });
+
+        if (!updatedUserCredits) throw new Error("User credits update failed");
+
+        return JSON.parse(JSON.stringify(updatedUserCredits));
+    } catch (error) {
+        handleError(error);
+    }
+}
